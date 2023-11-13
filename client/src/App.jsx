@@ -4,6 +4,7 @@ import { QueryClientProvider, QueryClient } from "react-query"
 import { ReactQueryDevtools } from "react-query/devtools"
 import LandingPage from './pages/LandingPage'
 import Header from './components/Header'
+import MovieDetail from './pages/MovieDetail'
 
 const queryClient = new QueryClient()
 
@@ -15,6 +16,7 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<LandingPage />}/>
+            <Route path='/:id' element={<MovieDetail /> }/>
           </Routes>
         </div>
       </Router>
