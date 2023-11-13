@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from "react-query/devtools"
 import LandingPage from './pages/LandingPage'
 import Header from './components/Header'
 import MovieDetail from './pages/MovieDetail'
+import Orders from './pages/Orders'
 
 const queryClient = new QueryClient()
 
@@ -16,6 +17,7 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<LandingPage />}/>
+            <Route path='/orders' element={<Orders /> }/>
             <Route path='/:id' element={<MovieDetail /> }/>
           </Routes>
         </div>

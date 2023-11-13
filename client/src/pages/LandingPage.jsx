@@ -13,7 +13,6 @@ const LandingPage = () => {
   const totalData = useSelector(state => state.movieReducer.totalData)
 
   const [inputSearch, setInputSearch] = useState('Pokemon')
-  const [arrayOfPrice, setArrayOfPrice] = useState([])
   const search = useDebounce(inputSearch)
   const [page, setPage] = useState(1)
   const perPage = 10
@@ -24,7 +23,9 @@ const LandingPage = () => {
       dispatch({
         type: 'SET_MOVIES',
         payload: {
-          movies: status === 'success' && data.length ? data : [],
+          movies: status === 'success' && data.length ? data.map(item => {
+            return {...item, Price: getRandomInt(100000, 1000000)}
+          }) : [],
           totalData
         }
       })
