@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage'
 import Header from './components/Header'
 import MovieDetail from './pages/MovieDetail'
 import Orders from './pages/Orders'
+import Checkout from './pages/Checkout'
 
 const queryClient = new QueryClient()
 
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path='/' element={<LandingPage />}/>
             <Route path='/orders' element={<Orders /> }/>
+            <Route path='/checkout' element={<Checkout /> }/>
             <Route path='/:id' element={<MovieDetail /> }/>
           </Routes>
         </div>

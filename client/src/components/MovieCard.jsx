@@ -50,7 +50,7 @@ const MovieCard = ({ movie, movieDetailPath }) => {
         <h2 className="text-xl font-semibold text-amber-500 mb-4">{movie.Title}</h2>
         <h2 className="text-base font-medium bg-zinc-500 w-fit px-2 rounded-xl mb-2">{movie.Year}</h2>
         <h2 className="text-base font-medium text-amber-500 w-fit ">{rupiahFormatter(movie.Price || getRandomInt(100000, 1000000))}</h2>
-        {movie.Count && <div className="flex items-center mt-4">
+        {Boolean(movie.Count) && <div className="flex items-center mt-4">
           <MinusIcon className="h-6 w-6 text-white bg-amber-500 font-semibold cursor-pointer" onClick={() => removeOrder(movie.imdbID, movie.Count)} />
           <h2 className="text-white font-semibold mx-3 w-4 text-center">{movie.Count}</h2>
           <PlusIcon className="h-6 w-6 text-white bg-amber-500 font-semibold cursor-pointer" onClick={() => addOrder(movie.imdbID)} />

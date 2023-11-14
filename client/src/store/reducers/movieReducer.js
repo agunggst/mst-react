@@ -2,7 +2,8 @@ const defaultState = {
   movies: [],
   totalData: 0,
   detailMovie: {},
-  orders: []
+  orders: [],
+  checkoutOrders: []
 }
 
 const reducer = (state = defaultState, action) => {
@@ -34,6 +35,11 @@ const reducer = (state = defaultState, action) => {
         return item.imdbID !== action.payload.imdbId
       })
       return {...state, orders: ordersTempDelete}
+    case 'CHECKOUT_ORDER':
+      let checkoutTemp = state.orders.map(item => {
+        return {...item, Count: 0}
+      })
+      return {...state, orders: [], checkoutOrders: checkoutTemp}
     default:
       return state
   }
